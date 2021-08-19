@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./team.js" defer></script>
     <title>Document</title>
+    <style>
+        #tblTeam{
+            width:100%;
+            border: solid;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <h1>Teams</h1>
@@ -20,11 +27,21 @@
         </select>
          <br>
          <label for="member">Members: </label>
-        <select name="member" id="addMember">
+        <select name="member" id="addMember" multiple>
             <option>Select Members</option>
         </select>
          <br>
          <input type="submit"  id="save" value="Add User" onclick="TeamSetup();">
       </form>
+      <br>
+      <table id="tblTeam">
+          <tr>
+              <thead>
+                  <th>SNo</th>
+                  <th>Title</th>
+                  <th>Action</th>
+              </thead>
+          </tr>
+      </table>
 </body>
 </html>

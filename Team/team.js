@@ -13,7 +13,8 @@ class TeamSet{
         this.TName     = TName,
         this.catId     = catId,
         this.isEnable  = 1 ,
-        this.members  = this.Teams(memberId);
+        this.members  = memberId;
+        //this.members  = this.Teams(memberId);
     }
     Teams(mId){
         member.push(Number(mId));
@@ -63,7 +64,7 @@ const setCategory = () => {
         console.log(getCat);
     if(getCat !== null){
         getCat.map((cat,i)=>{
-       var option = document.createElement("option");
+       let option = document.createElement("option");
        option.text = cat.catName;
        option.value = cat.id;
        console.log('option ',option);
@@ -73,15 +74,43 @@ const setCategory = () => {
  }
 }
 const TeamSetup = () =>{
+  let TeamStorage = [];
   let owner = JSON.parse(localStorage.getItem('userId'))
   let Tname = document.getElementById('Tname').value;
   let setCat = document.getElementById('setCat').value;
-  let mId = document.getElementById('addMember').value;
-  const teamSet = new TeamSet(1,owner, Tname, setCat, mId);
-  localStorage.setItem('TeamList', JSON.stringify(teamSet));
-  console.log(teamSet);
+  let mIdArray = document.getElementById('addMember').selectedOptions;
+  let mIds = Array.from(mIdArray).map(({ value }) =>Number( value));
+ const teamSet = new TeamSet(1,owner, Tname, setCat, mIds);
+ TeamStorage.push(teamSet);
+ localStorage.setItem('TeamList', JSON.stringify(TeamStorage));
+}
+
+const setTeamTbl = () =>{
+  
+  let TeamList = JSON.parse(localStorage.getItem('TeamList'));
+  let tbl      = document.getElementById('tblTeam');
+  TeamList.map((obj, i)=>{
+  //  console.log(obj);
+
+    let btn = document.createElement("button").innerText = 'd';
+    let tbody = document.createElement("TBODY");
+    let tr = document.createElement("TR");
+    let td1 = document.createElement("TD");
+    let td2 = document.createElement("TD");
+    let td3 = document.createElement("TD");
+        td1.innerHTML = i+1;
+        tr.appendChild(td1);
+        td2.innerHTML = obj.TName;
+        tr.appendChild(td2);
+        td3.innerHTML = btn;
+        tr.appendChild(td3);
+       tbody.appendChild(tr);
+       tbl.appendChild(tbody);
+           
+   });
 }
 {
+  setTeamTbl();
     setCategory();
     addMember();
 }
