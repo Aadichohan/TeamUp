@@ -1,42 +1,37 @@
-class LoginClass{
-  constructor(isLogin){
-      this.isLogin  = isLogin 
-  }
+const getLoginItem = (isLogin) =>{
+    let login =  localStorage.getItem('login');
+    login = JSON.parse(login);
+    objIndex = login.findIndex((obj => obj.isLogin == isLogin));
+    return [objIndex, login];
 }
+const Logout = () => {
+     let _return = getLoginItem(true);
+     const [objIndex,login] = _return;
 
-const LoginSetup = () => {
-    let SignUpStorage = [];
-    let id = 1;
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-
-   let login = localStorage.getItem('login');
-
-      login = (login) ? JSON.parse(login) : [];
-
-      objIndex = login.findIndex((obj => obj.email == email && obj.password == password && obj.isEnable == 1));
-     // console.log(objIndex,' objIndex');
-    //  console.log("Before update: ", login[objIndex])
-
-//Update object's name property.
-login[objIndex].isLogin = true;
-
-//Log object to console again.
-console.log("After update: ", login[objIndex])
-
-
-    // const signUpConst = new LoginClass(true);
-    //  SignUpStorage.push(signUpConst);
-    //  localStorage.setItem('login',JSON.stringify(SignUpStorage)); 
-    // console.log('SignUpStorage ', SignUpStorage);
-
+     console.log(objIndex);
+    if(objIndex >= 0 ){
+        login[objIndex].isLogin = false;
+        localStorage.setItem('login',JSON.stringify(login)); 
+        window.location.replace('index.html');
+    }
+}
+const setContent = () =>{
+    let _return = getLoginItem(true);
+     const [objIndex,login] = _return;
+  document.getElementById('welcome').innerHTML = 'Let`s TeamUp <br>Welcome to! '+login[objIndex].uname;
+}
+const chechNotLogin = () =>{
+    let _return = getLoginItem(true);
+    const [objIndex] = _return;
+    //  console.log('chechNotLogin ', _return);
+    if(objIndex < 0 ){
+        window.location.replace('index.html');
+    }
 }
 
 
 {
-    //Setup Roles
-   // roleSetup();
-    
-  
+  //check  & redirect if not login
+  chechNotLogin();
+   setContent();
 }
-

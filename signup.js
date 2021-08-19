@@ -1,10 +1,10 @@
 class signUpClass{
-  constructor(id, uname, email, password, roll_id){
+  constructor(id, uname, email, password, role_id){
       this.id        = id,
       this.uname     = uname,
       this.email     = email,
       this.password  = password,
-      this.rollId    = roll_id,
+      this.roleId    = role_id,
       this.isLogin   = false ,
       this.isEnable  = 1 
   }
@@ -34,12 +34,9 @@ const SignUpSetup = () => {
            SignUpStorage.push(SignUp);
         });
         
-
     const signUpConst = new signUpClass(id, uname, email, password, rollId);
      SignUpStorage.push(signUpConst);
-     localStorage.setItem('login',JSON.stringify(SignUpStorage)); 
-    // console.log('SignUpStorage ', SignUpStorage);
-
+     localStorage.setItem('login',JSON.stringify(SignUpStorage));
 }
 
 const roleSetup = () => {
@@ -48,12 +45,16 @@ const roleSetup = () => {
     if(getLogin === null){
        localStorage.setItem('login', []);
     }
-  let roleList = ['TeamLead','Employee'];
+  let roleList = ['Admin','TeamLead','Employee'];
   let roleStorage = [];
   roleList.map((roles,i)=>{
+ 
       i = i + 1;
    const roleConst = new role(i,roles);
        roleStorage.push(roleConst);
+       if(roles ==='Admin'){
+        return false;
+       }
        console.log(roleStorage);
        var option = document.createElement("option");
        option.text = roles;
