@@ -32,10 +32,22 @@ const chechNotLogin = () =>{
         window.location.replace('index.html');
     }
 }
+const setSidebar = () =>{
+      const root = document.getElementById('nav')
+fetch("./sidebar.html")
+  .then(response => {
+    return response.text()
+  })
+  .then(data => {
+    root.innerHTML = data;
+  });
+
+}
 
 
 {
   //check  & redirect if not login
-  chechNotLogin();
+   chechNotLogin();
+   setSidebar();
    setContent();
 }
