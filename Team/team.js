@@ -13,7 +13,7 @@ class TeamSet{
         this.TName     = TName,
         this.catId     = catId,
         this.isEnable  = 1 ,
-        this.members  = memberId;
+        this.members   = memberId;
         //this.members  = this.Teams(memberId);
     }
     Teams(mId){
@@ -37,6 +37,7 @@ class TeamSet{
      });
      
    const catConst = new TeamCat(id, CatName);
+  //  console.log('catConst ', catConst);
    CatStorage.push(catConst);
  localStorage.setItem('CatList',JSON.stringify(CatStorage));
   }
@@ -75,24 +76,43 @@ const setCategory = () => {
 }
 const TeamSetup = () =>{
   let TeamStorage = [];
-  let owner = JSON.parse(localStorage.getItem('userId'))
-  let Tname = document.getElementById('Tname').value;
-  let setCat = document.getElementById('setCat').value;
-  let mIdArray = document.getElementById('addMember').selectedOptions;
-  let mIds = Array.from(mIdArray).map(({ value }) =>Number( value));
- const teamSet = new TeamSet(1,owner, Tname, setCat, mIds);
+  let id = 1;
+  let TeamList    = JSON.parse(localStorage.getItem('TeamList'))
+  let owner       = JSON.parse(localStorage.getItem('userId'))
+  let Tname       = document.getElementById('Tname').value;
+  let setCat      = document.getElementById('setCat').value;
+  let mIdArray    = document.getElementById('addMember').selectedOptions;
+  let mIds        = Array.from(mIdArray).map(({ value }) =>Number( value));
+  console.log('setCat ',mIds.length);
+  if(Tname !='' && setCat != '' && mIds.length > 0){
+  TeamList = (TeamList) ? TeamList : [];
+  
+  TeamList.map((team,i)=>{
+    id = team.id + 1 ;
+    TeamStorage.push(team);
+  });
+  const teamSet    = new TeamSet(id,owner, Tname, setCat, mIds);
+//  console.log(teamSet);
  TeamStorage.push(teamSet);
+ console.log('TeamStorage ',TeamStorage);
  localStorage.setItem('TeamList', JSON.stringify(TeamStorage));
+   
+  }
 }
 
 const setTeamTbl = () =>{
   
   let TeamList = JSON.parse(localStorage.getItem('TeamList'));
   let tbl      = document.getElementById('tblTeam');
+  if(TeamList){
   TeamList.map((obj, i)=>{
   //  console.log(obj);
 
-    let btn = document.createElement("button").innerText = 'd';
+      let btn = document.createElement("BUTTON");
+      let t   = document.createTextNode("CLICK ME");
+                btn.setAttribute("style","color:red;font-size:23px");
+                btn.setAttribute("data-id",obj.id);
+                btn.appendChild(t);
     let tbody = document.createElement("TBODY");
     let tr = document.createElement("TR");
     let td1 = document.createElement("TD");
@@ -102,12 +122,13 @@ const setTeamTbl = () =>{
         tr.appendChild(td1);
         td2.innerHTML = obj.TName;
         tr.appendChild(td2);
-        td3.innerHTML = btn;
+        td3.appendChild(btn);
         tr.appendChild(td3);
        tbody.appendChild(tr);
        tbl.appendChild(tbody);
            
    });
+  }
 }
 {
   setTeamTbl();

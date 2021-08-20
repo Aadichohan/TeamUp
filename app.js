@@ -17,8 +17,12 @@ const Logout = () => {
 }
 const setContent = () =>{
     let _return = getLoginItem(true);
-     const [objIndex,login] = _return;
-  document.getElementById('welcome').innerHTML = 'Let`s TeamUp <br>Welcome to! '+login[objIndex].uname;
+   // console.log('_return ',_return);
+    const [objIndex,login] = _return;
+    let welcome =   document.getElementById('welcome');
+   if(welcome){
+    welcome.innerHTML = 'Let`s TeamUp <br>Welcome to! '+login[objIndex].uname;
+   }
 }
 const chechNotLogin = () =>{
     let _return = getLoginItem(true);
