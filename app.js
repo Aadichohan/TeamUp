@@ -1,8 +1,14 @@
 const getLoginItem = (isLogin) =>{
     let login =  localStorage.getItem('login');
-    login = JSON.parse(login);
-    objIndex = login.findIndex((obj => obj.isLogin == isLogin));
-    return [objIndex, login];
+    
+    if(login){
+      login = JSON.parse(login);
+      objIndex = login.findIndex((obj => obj.isLogin == isLogin));
+      return [objIndex, login];
+    }
+    else{
+      return [null, null];
+    }
 }
 const Logout = () => {
      let _return = getLoginItem(true);
@@ -27,8 +33,8 @@ const setContent = () =>{
 const chechNotLogin = () =>{
     let _return = getLoginItem(true);
     const [objIndex] = _return;
-    //  console.log('chechNotLogin ', _return);
-    if(objIndex < 0 ){
+      console.log('chechNotLogin ', _return);
+    if(objIndex == null || objIndex < 0 ){
         window.location.replace('index.html');
     }
 }
