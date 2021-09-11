@@ -1,19 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./team.js" defer></script>
-    <title>Document</title>
-</head>
-<body>
-    <h1>ADD Category</h1>
-    <form  onsubmit="return false;" id="">
-        <label for="name">Category Name: </label>
-         <input type="text" name="catName" id="catName">
-         <br>
-         <input type="submit"  id="save" value="Add Category" onclick="CatSetup();">
-    </form>
-</body>
-</html>
+<div class="container-fluid" id="container-wrapper">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Team Category</h1>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="./">Home</a></li>
+        <li class="breadcrumb-item">Setup</li>
+        <li class="breadcrumb-item active" aria-current="page">Team Category</li>
+      </ol>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8 py-3">
+        <!-- Form Basic -->
+        <div class="card mb-4">
+          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Team Category</h6>
+          </div>
+          <div class="card-body">
+            <form onsubmit="return false;">
+              <div class="form-group">
+                <label for="catName">Category Name</label>
+                <input type="text" class="form-control" name="catName" id="catName"
+                  placeholder="Enter Category">
+              </div>
+              <div class="row justify-content-center">
+
+                  <input type="submit"  class="btn btn-primary" id="save" value="Add Category" onclick="CatSetup();">
+              </div>
+              <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+            </form>
+          </div>
+        </div>
+    </div>
+    <!--Row-->
+
+  </div>

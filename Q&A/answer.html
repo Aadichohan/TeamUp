@@ -1,0 +1,58 @@
+<div class="container-fluid" id="container-wrapper" style="min-height:500px">
+    
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Setup Answers</h1>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="./">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Team Admin</li>
+        </ol>
+      </div>
+    <div class="col-lg-12">
+        <div class="card mb-3" style="min-height: 400px;">
+          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+              <!-- <div class="card-body"> -->
+                  <h6 class="m-0 font-weight-bold text-primary" id="heading">Answers List</h6>
+          </div>
+          <div class="card-body">
+          
+          <div id="quest">
+            <ul class="list-group" id="list-group">
+                <!-- <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li> -->
+              </ul>
+          </div>
+        </div>
+      </div>
+     </div>
+    </div>
+
+<div class="modal fade" id="AnswerModel" tabindex="-1" role="dialog"
+    aria-labelledby="AnswerModelTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="AnswerModelTitle">Answer a Questions</h5>
+        </div>
+        <div class="modal-body">
+            <input type="hidden">
+            <h6 id="quiz">a</h6>
+            <h5 class="font-weight-bold">Answer</h5>
+            <div class="form-group" id="inputBox">
+                <input type="hidden" class="form-control" id="OwnerId"/>
+                <input type="hidden" class="form-control" id="QId"/>
+                <input type="hidden" class="form-control" id="TId"/>
+
+                <input type="text" class="form-control" id="answer" placeholder="Answer">
+            </div>
+
+        </div>
+        <div class="modal-footer" id="mdl-footer">
+          <button type="button" class="btn btn-outline-primary" id="buttonDismiss" data-dismiss="modal" onclick="closeAnsModel();">Close</button>
+          <button type="button" class="btn btn-primary" id="saveAnsBtn" onclick="saveAns();">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

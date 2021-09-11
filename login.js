@@ -20,7 +20,7 @@ const LoginAuthSetup = () => {
           login[objIndex].isLogin = true;
           localStorage.setItem('userId',login[objIndex].id); 
           localStorage.setItem('login',JSON.stringify(login)); 
-          window.location.replace('home.html');
+          window.location.replace('app.html');
       }
 
 }
@@ -43,7 +43,7 @@ const adminLogin = () => {
     login = JSON.parse(login);
     objIndex = login.findIndex((obj => obj.isLogin == true));
     if(objIndex >= 0 ){
-        window.location.replace('home.html');
+        window.location.replace('app.html');
     }
 }
 
