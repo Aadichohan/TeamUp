@@ -28,15 +28,24 @@ const SignUpSetup = () => {
    let login = localStorage.getItem('login');
 
       login = (login) ? JSON.parse(login) : [];
-
-       login.map((SignUp,i)=>{
-           id = SignUp.id + 1 ;
-           SignUpStorage.push(SignUp);
-        });
+     let index = login.findIndex((obj => obj.uname== uname && obj.email == email));
+      if(index > -1){
+       alert('User Already Exsist');
+      }
+      else{
+        const signUpConst = new signUpClass(id, uname, email, password, rollId);
+        login.push(signUpConst);
+        localStorage.setItem('login',JSON.stringify(login));
+        alert('User Created SuccessFully');
+        window.location.replace('app.html');
+      }
+      //  login.map((SignUp,i)=>{
+      //      id = SignUp.id + 1 ;
+      //      SignUpStorage.push(SignUp);
+      //   });
         
-    const signUpConst = new signUpClass(id, uname, email, password, rollId);
-     SignUpStorage.push(signUpConst);
-     localStorage.setItem('login',JSON.stringify(SignUpStorage));
+  
+    //  SignUpStorage.push(signUpConst);
 }
 
 const roleSetup = () => {
