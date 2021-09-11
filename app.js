@@ -42,7 +42,7 @@ const chechNotLogin = () =>{
 }
 const setSidebar = () =>{
       const root = document.getElementById('nav')
-fetch("./template/sidebar.html")
+fetch("./Template/sidebar.html")
   .then(response => {
     return response.text()
   })
@@ -53,7 +53,7 @@ fetch("./template/sidebar.html")
 }
 const setHeader = () =>{
       const root = document.getElementById('header')
-fetch("./template/header.html")
+fetch("./Template/header.html")
   .then(response => {
     return response.text()
   })
@@ -69,7 +69,7 @@ fetch("./template/header.html")
 }
 const setFooter = () =>{
       const root = document.getElementById('footer')
-fetch("./template/footer.html")
+fetch("./Template/footer.html")
   .then(response => {
     return response.text()
   })
