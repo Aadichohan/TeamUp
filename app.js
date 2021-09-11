@@ -20,7 +20,7 @@ const Logout = () => {
         setStorage('login',login);
         RStorage('userId');
         // localStorage.setItem('login',JSON.stringify(login)); 
-        window.location.replace('./');
+        window.location.replace('index.html');
     }
 }
 const setContent = () =>{
