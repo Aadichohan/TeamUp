@@ -187,11 +187,11 @@ const setTeamTbl = () =>{
       let row = '<td>'+tr.TName+'</td><td>'+tr.ownerName+'</td><td>'+tr.memberName+
       '</td>';
       let row_action = '<td><a href="javascript:(0);" class="btn-danger"  data-id="'
-      +tr.TId+'" onclick="teamDetail(this);" data-backdrop="static" data-keyboard="false"><i class="far fa-edit"></i></a>'+
+      +tr.TId+'" onclick="teamDetail(this);" data-backdrop="static" data-keyboard="false" data-toggle="tooltip" title="Edit Members"><i class="far fa-edit"></i></a>'+
       '&nbsp;&nbsp;<a href="javascript:(0);" class="btn-info"  data-id="'
-      +tr.TId+'"  data-tname="'+tr.TName+'" onclick="viewQuestion(this);" ><i class="far fa-question-circle"></i></a>'+
+      +tr.TId+'"  data-tname="'+tr.TName+'" onclick="viewQuestion(this);" data-toggle="tooltip" title="Setup Question"><i class="far fa-question-circle"></i></a>'+
       '&nbsp;&nbsp;<a href="javascript:(0);" class="btn-info"  data-id="'
-      +tr.TId+'"  data-tname="'+tr.TName+'" onclick="viewAdminReport(this);" ><i class="fa fa-history"></i></a>'+
+      +tr.TId+'"  data-tname="'+tr.TName+'" onclick="viewAdminReport(this);" data-toggle="tooltip" title="Members Report"><i class="fa fa-history"></i></a>'+
       '</td>';
       let tbody = document.getElementById('tbody');
       let data = tbody.insertRow(-1).innerHTML = row+row_action;
@@ -272,10 +272,10 @@ const setGroupTbl = () =>{
       // console.log('tr ',tr);
       let row = '<td>'+tr.TName+'</td><td>'+tr.ownerName+'</td><td>'+tr.memberName+'</td>';
       let row_action = '<td><a href="javascript:(0);" class="btn-warning"  data-id="'
-      +tr.TId+'" onclick="GroupDetail(this);" data-backdrop="static" data-keyboard="false"><i class="fa fa-search"></i></a>&nbsp;&nbsp;<a href="javascript:(0);" class="btn-info"  data-id="'
-      +tr.TId+'"  data-tname="'+tr.TName+'" onclick="viewAnswer(this);" ><i class="fa fa-reply"></i></a>'+
+      +tr.TId+'" onclick="GroupDetail(this);" data-backdrop="static" data-keyboard="false" data-toggle="tooltip" title="View Group Membership"><i class="fa fa-search"></i></a>&nbsp;&nbsp;<a href="javascript:(0);" class="btn-info"  data-id="'
+      +tr.TId+'"  data-tname="'+tr.TName+'" onclick="viewAnswer(this);" data-toggle="tooltip" title="Answer Questions"><i class="fa fa-reply"></i></a>'+
       '&nbsp;&nbsp;<a href="javascript:(0);" class="btn-info"  data-id="'
-      +tr.TId+'"  data-tname="'+tr.TName+'" onclick="viewGAnswerReport(this);" ><i class="fa fa-history"></i></a>'+
+      +tr.TId+'"  data-tname="'+tr.TName+'" onclick="viewGAnswerReport(this);" data-toggle="tooltip" title="Daily Report"><i class="fa fa-history"></i></a>'+
       '</td>';
       // '</td><td><a href="javascript:(0);" class="btn btn-info"  data-id="'
       // +tr.TId+'" onclick="GroupDetail(this);" data-backdrop="static" data-keyboard="false">Details</a></td>';
