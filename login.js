@@ -20,7 +20,7 @@ const LoginAuthSetup = () => {
           login[objIndex].isLogin = true;
           localStorage.setItem('userId',login[objIndex].id); 
           localStorage.setItem('login',JSON.stringify(login)); 
-          window.location.replace('app.html');
+          window.location.replace('app');
       }
 
 }
